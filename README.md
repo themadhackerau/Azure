@@ -56,9 +56,25 @@ https://learn.microsoft.com/en-us/training/modules/introduction-azure-private-li
 
 ### Perimeter
 
-WAF
+#### WAF - Web Application Firewall
 
-Bastion
+Azure WAF is primarily designed to protect against the OWASP Top 10 Security Risks. It protects web apps from common attacks like SQL Injection, Cross Site Scripting, HTTP Protocol Violations, Bots and Crawlers. Comes preconfigured with Common Rule Sets
+
+https://azure.microsoft.com/en-us/products/web-application-firewall/
+
+https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules?tabs=owasp31&culture=en-us&country=us
+
+
+
+#### Bastion - Azure Bastion
+
+Azure Bastion provides remote access to your VMs via HTML5 in your browser over port 443. Which means that you do not have to expose remote access ports like 22 (SSH) and 3389 (RDP) to the internet. Instead these can be locked down to the bastion host only. This can be further strengthened by combining Bastion with JIT and only opening ports to the Bastion when requested.
+
+https://azure.microsoft.com/en-us/products/azure-bastion/
+
+
+![image](https://user-images.githubusercontent.com/107555197/214223199-b24eccfb-839a-4eed-a5b0-563c855cb0e2.png)
+
 
 Firewall
 
