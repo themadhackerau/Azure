@@ -181,6 +181,10 @@ Microsoft Documentation - https://learn.microsoft.com/en-us/azure/defender-for-c
 
 ![image](https://user-images.githubusercontent.com/107555197/214216574-a801cc74-ad5d-4c48-9582-962ad6051a95.png)
 
-Sentinel
+#### Sentinel
+
+Azure Sentinel is Microsoft's Cloud Native SIEM and SOAR Platform. Backed by Microsoft Threat Intelligence. Uses KQL for building queries.
+
+https://learn.microsoft.com/en-us/azure/sentinel/overview
 
 
