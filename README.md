@@ -53,6 +53,21 @@ A private endpoint is a network interface that uses a private IP address from yo
 
 https://learn.microsoft.com/en-us/training/modules/introduction-azure-private-link/2-what-is-azure-private-link
 
+#### NSGs - Network Security Groups
+
+Basically a set of rules to Deny or Allow access inbound or outbound to your resources. For each rule, you can specify source and destination, port, and protocol. Azure provides some default rules to Allow Inbound access from the Local VNET, and Load Balancer(s) and a Default Inbound Deny Rule. Outbound Defaults include Outbound access to the Local VNET, Outound to the Internet and Default Deny Outbound Rule.
+
+https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
+
+#### ASGs - Application Security Groups
+
+Allow you to group virtual machines and define network security policies based on those groups. Without having to maintain explicit IP Addresses in the rules. For example a set of web servers can be grouped together with the same inbound ports, without specifically having to set each IP Address. Combine with NSGs.
+
+![image](https://user-images.githubusercontent.com/107555197/214225833-c7852625-5b64-47b2-a64f-be39d1b6ac40.png)
+
+
+https://learn.microsoft.com/en-us/azure/virtual-network/application-security-groups
+
 
 ### Perimeter
 
@@ -76,14 +91,83 @@ https://azure.microsoft.com/en-us/products/azure-bastion/
 ![image](https://user-images.githubusercontent.com/107555197/214223199-b24eccfb-839a-4eed-a5b0-563c855cb0e2.png)
 
 
-Firewall
+#### Azure Firewall
 
-Front Door
+Azure Firewall comes in 2 SKUs - Standard and Premium. Premium provides TLS Inspection, IDS/IPS, URL Filtering. Azure Firewalls can be managed by Azure Firewall Manager for a single pane of glass management. Backed by Microsoft Threat Intelligence.
+
+https://learn.microsoft.com/en-us/azure/firewall/overview
+
+![image](https://user-images.githubusercontent.com/107555197/214223962-cd32fb7b-3e9f-4e24-a1ff-0fc8acd5f8c6.png)
+
+![image](https://user-images.githubusercontent.com/107555197/214223978-7e0d15e2-c394-4977-8668-9485312e5a48.png)
+
+
+#### Front Door
+
+Microsoft's CDN, available globally. Supports SPLIT TCP, SSL Offload, DDoS Protection. Compatible with Private Link behind Front Door. Available in different SKUs. 
+
+https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview
+
+#### DDoS
+
+Microsoft provides a default level of DDoS protection, however it does not have alerting or telemetry and has much higher threshholds than most applications could handle. If you are running your IaaS Workloads a better option is to upgrade to the Standard Tier. DDoS backed by Microsoft Security Graph.
+
+https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-faq
+
+### Application Security
+
+#### Key Vault
+
+Key Vault provides secure storage and access to Keys, Secrets and Certificates. Permissions can be governed by Azure Active Directory and RBAC or Access Policies. Key vault can support Hardware Security Modules if required. Data is encrytped in transit via TLS.
+
+https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts
+
+#### Storage
+
+Every storage account is encrypted by default, customers can choose a Microsoft Managed Key or Customer Managed Key
+
+Access Policies can be enabled such as Legal Hold or Time Based Hold
+
+Secure Transfer Option - only allows access via HTTPs or SMB 3.0
+
+Integrates with Defender for Cloud
+
+https://learn.microsoft.com/en-us/azure/architecture/framework/services/storage/storage-accounts/security
+
+#### SQL Database Security
+
+Comes with built-in firewall, Deny All by Defulat, Can be configured at Server Level or DB level. There is also an option to allow Azure Resources to have access automatically.
+
+##### Discover & Classification Service - 
+
+Can Scan database Tables for sensitive information and can flag recommendations
+
+![image](https://user-images.githubusercontent.com/107555197/214228117-67fd6d03-b1a9-4f52-86cb-e0a3f86e0f5e.png)
+
+##### Transparent Data Encryption (Encryption at Rest) 
+
+All new databases are encrypted by default
+
+##### Always Encrypted -
+
+ Can be enabled on Database Columns via the SQL Management Studio. Provides Encryption in Transit, as the data can only be decrypted at the client end with the appropriate key.
+ 
+ ##### Dynamic Masking -
+ 
+ Automatically discovers sensitive data within the database and can obfuscate specific patterns like Credit Card numbers.
+
+https://learn.microsoft.com/en-us/azure/azure-sql/database/security-overview?view=azuresql
+
 
 
 ### Monitoring
 
-Azure Monitor
+#### Azure Monitor
+
+Azure Monitor is all about Availability and Monitoring, by collecting Metrics and Logs from your environment. You can build upon Monitor with visualitions and dashboards, integrating with Power BI for even more customisation.
+
+![image](https://user-images.githubusercontent.com/107555197/214226169-67b28a3d-58bb-43c3-baae-579a8abc8830.png)
+
 
 
 #### Defender for Cloud
