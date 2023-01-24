@@ -2,7 +2,7 @@
 ## Azure Hints and Tips
 
 
-A collection of recommendations to help secure Azure Services and Platforms. These are native tools and services that exist within Azure that you can use immediately.
+A collection of recommendations to help secure Azure Services and Platforms. These are native tools and services that exist within Azure that you can use immediately, some are Free and some are paid. Some of these tools are quite obvious and common, others not so much, the goal here is to highlight what exists already in the platform that can be used to add further layers or security.
 
 
 ### Identity
